@@ -12,7 +12,7 @@ pipeline {
         steps {
            cleanWs()
            
-           git credentialsId: 'GIT_HUB_CREDENTIALS', url: ""
+           git credentialsId: 'GIT_HUB_CREDENTIALS', url: "https://github.com/patiwat13/patiwat13.git"
         }
      
      }
