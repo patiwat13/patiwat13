@@ -3,7 +3,15 @@ pipeline {
   
   stages{
      
-    
+    stage("Git Clone"){
+      
+                     steps {
+                           script {
+                                git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/nginx-say.git'
+                                echo 'Git Complete...'
+                                   }
+                            }
+                    }
     
     stage('SSH into the server') {
         steps {
@@ -14,15 +22,8 @@ pipeline {
                             remote.user = 'root'
                             remote.password = 'zjkoC]6p'
                             remote.allowAnyHosts = true
-                 stage("Git Clone"){
-      
-                     steps {
-                           script {
-                                git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/nginx-say.git'
-                                echo 'Git Complete...'
-                                   }
-                            }
-                    }
+                 
+                 
                  echo 'SSH Success'
                  
                  stage('Using Command') {
