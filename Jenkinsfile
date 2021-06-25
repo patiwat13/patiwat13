@@ -12,6 +12,12 @@ pipeline {
                             remote.password = 'zjkoC]6p'
                             remote.allowAnyHosts = true
                  
+                 stage("Git Clone"){
+                   
+                   steps {
+         git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/nginx-say.git'
+      }
+                 }
                  echo 'SSH Success'
                  
                  stage('Using Command') {
