@@ -1,22 +1,24 @@
 pipeline {
   agent any
   
-  environment {
-  
-  SERVICE_NAME = "liquid07/website-php"
-  REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
-  }
-  
   stages{
-     stages('Preparation'){
+     stage('SSH into the server') {
         steps {
-           cleanWs()
-           
-           git credentialsId: 'GIT_HUB_CREDENTIALS', url: "https://github.com/patiwat13/patiwat13.git"
-        }
+               script {
+                            def remote = [:]
+                            remote.name = 'K8S master'
+                            remote.host = '192.168.1.100'
+                            remote.user = 'root'
+                            remote.password = 'zjkoC]6p'
+                            remote.allowAnyHosts = true
+                 
+                 echo 'SSH Success'
      
-     }
+                     }
     
+              }
+       
+     }
   }
   
 }
