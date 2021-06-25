@@ -9,6 +9,7 @@ pipeline {
                            script {
                                 git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/nginx-say.git'
                                 echo 'Git Complete...'
+                                sh 'pwd'
                                    }
                             }
                     }
