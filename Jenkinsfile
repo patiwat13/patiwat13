@@ -22,6 +22,8 @@ pipeline {
                         sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'docker tag nginx-docker-demo liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
+                        sshPut remote: remote, from: 'Dockerfile', into: '.'
+                        sshRemove remote: remote, path: "Dockerfile"
       }
      
                      }
