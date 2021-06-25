@@ -18,6 +18,10 @@ pipeline {
                         sshCommand remote: remote, command: "pwd"
                         sshCommand remote: remote, command: "whoami"
                         sshCommand remote: remote, command: "docker version"
+                        sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins .'
+                        sshCommand remote: remote, command: 'docker image list'
+                        sshCommand remote: remote, command: 'docker tag nginx-docker-demo liquid07/nginx-docker-demo:jenkins-nginx'
+                        sshCommand remote: remote, command: 'docker image list'
       }
      
                      }
