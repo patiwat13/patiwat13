@@ -3,14 +3,6 @@ pipeline {
   
   stages{
      
-    stage("Git Clone"){
-      
-      steps {
-        script {
-         git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/patiwat13/nginx-say.git'
-      }
-    }
-    }
     
     
     stage('SSH into the server') {
@@ -22,14 +14,22 @@ pipeline {
                             remote.user = 'root'
                             remote.password = 'zjkoC]6p'
                             remote.allowAnyHosts = true
-                 
+                 stage("Git Clone"){
+      
+                     steps {
+                           script {
+                                git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/patiwat13/nginx-say.git'
+                                echo 'Git Complete...'
+                                   }
+                            }
+                    }
                  echo 'SSH Success'
                  
                  stage('Using Command') {
                         
                         //sshCommand remote: remote, command: "pwd"
                         //sshCommand remote: remote, command: "whoami"
-                        sshCommand remote: remote, command: "git clone https://github.com/patiwat13/nginx-say.git"
+                        //sshCommand remote: remote, command: "git clone https://github.com/patiwat13/nginx-say.git"
                         //sshPut remote: remote, from: 'Dockerfile', into: 'root'
                         sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins nginx-say/.'
                         sshCommand remote: remote, command: 'docker image list'
