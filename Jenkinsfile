@@ -13,6 +13,11 @@ pipeline {
                             remote.allowAnyHosts = true
                  
                  echo 'SSH Success'
+                 
+                 stage('Using Command') {
+                        sshCommand remote: remote, command: "pwd"
+                        sshCommand remote: remote, command:  "whoami"
+      }
      
                      }
     
