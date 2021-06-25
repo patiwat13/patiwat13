@@ -18,7 +18,7 @@ pipeline {
       
                      steps {
                            script {
-                                git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/patiwat13/nginx-say.git'
+                                git credentialsId: 'GIT_HUB, url: 'https://github.com/patiwat13/nginx-say.git'
                                 echo 'Git Complete...'
                                    }
                             }
