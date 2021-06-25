@@ -16,7 +16,8 @@ pipeline {
                  
                  stage('Using Command') {
                         sshCommand remote: remote, command: "pwd"
-                        sshCommand remote: remote, command:  "whoami"
+                        sshCommand remote: remote, command: "whoami"
+                        sshCommand remote: remote, command: "docker version"
       }
      
                      }
