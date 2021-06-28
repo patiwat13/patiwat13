@@ -49,7 +49,7 @@ pipeline {
               steps {
                     script {
 
-                      sh 'pwd'
+                      sshCommand remote: remote, command: 'kubectl'
 
                     }
               }
