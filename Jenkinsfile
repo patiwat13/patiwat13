@@ -56,7 +56,7 @@ pipeline {
                        sshCommand remote: remote, command: 'cp patiwat13/*cfg .'
                        //sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
                        sshCommand remote: remote, command: "pwd"
-                       sshCommand remote: remote, command: 'source ./export.sh'
+                       sshCommand remote: remote, command: 'source ./export.sh && echo $KUBECONFIG'
                        sshCommand remote: remote, command: 'kubectl get node'
                    
                 
