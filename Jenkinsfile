@@ -47,7 +47,7 @@ pipeline {
                }
         }
     }
-        stage("Git Clone"){
+        stage("Git Clone X"){
 
               steps {
                     script {
