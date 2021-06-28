@@ -42,12 +42,9 @@ pipeline {
                         sshCommand remote: remote, command: 'cp nginx-say/*yaml .'
                         sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
-                
-                  }
-               }
-        }
-    }
-        stage("Git Clone X"){
+                   
+                   
+                   stage("Git Clone X"){
 
               steps {
                     script {
@@ -57,6 +54,12 @@ pipeline {
                     }
               }
           }
+                
+                  }
+               }
+        }
+    }
+        
      
                    
   
