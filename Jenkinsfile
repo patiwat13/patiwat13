@@ -7,7 +7,7 @@ pipeline {
       
                      steps {
                            script {
-                                git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/nginx-say.git'
+                                git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/patiwat13.git'
                                 echo 'Git Complete...'
                                 sh 'pwd'
                                 sh 'ls'
@@ -32,7 +32,7 @@ pipeline {
                         
                         //sshCommand remote: remote, command: "pwd"
                         //sshCommand remote: remote, command: "whoami"
-                        sshCommand remote: remote, command: "git clone https://github.com/patiwat13/nginx-say.git"
+                        sshCommand remote: remote, command: "git clone https://github.com/patiwat13/patiwat13.git"
                         //sshPut remote: remote, from: 'Dockerfile', into: 'root'
                         sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins nginx-say/.'
                         //sshCommand remote: remote, command: 'rm -rf  nginx-say/'
