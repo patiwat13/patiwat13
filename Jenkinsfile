@@ -40,8 +40,8 @@ pipeline {
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
                         //sshRemove remote: remote, path: "Dockerfile"
-      }
-                 stage("Login to Rancher"){ 
+                
+                  stage("Login to Rancher"){ 
       kubeconfig(caCertificate: '''-----BEGIN CERTIFICATE-----
 MIIBiDCCAS6gAwIBAgIBADAKBggqhkjOPQQDAjA7MRwwGgYDVQQKExNkeW5hbWlj
 bGlzdGVuZXItb3JnMRswGQYDVQQDExJkeW5hbWljbGlzdGVuZXItY2EwHhcNMjEw
@@ -61,6 +61,10 @@ P9V/xvyOokeKAvZd
 
     }
                                 }
+                   
+                   
+      }
+                 
                  
      
                      }
