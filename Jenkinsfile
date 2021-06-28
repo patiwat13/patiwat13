@@ -46,13 +46,9 @@ pipeline {
                    
                    stage("Git Clone X"){
 
-              steps {
-                    script {
-
+            
                       sshCommand remote: remote, command: 'kubectl'
 
-                    }
-              }
           }
                 
                   }
