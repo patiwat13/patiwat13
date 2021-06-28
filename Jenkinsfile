@@ -43,10 +43,12 @@ pipeline {
                         sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                 
-                  
+                  }
+               }
+        }
+    }
                    
-                   
-      }
+      
                  stage("Git Clone"){
       
                      steps {
@@ -86,11 +88,6 @@ P9V/xvyOokeKAvZd
     }
                                 }
      
-                     }
-    
-              }
-       
-     }
-  }
+                   
   
 }
