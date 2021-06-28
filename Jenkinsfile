@@ -43,7 +43,12 @@ pipeline {
                         sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                 
-                  stage("Login to Rancher"){ 
+                  
+                   
+                   
+      }
+                 
+                 stage("Login to Rancher"){ 
                     
                     steps {
                script {
@@ -70,11 +75,6 @@ P9V/xvyOokeKAvZd
 
     }
                                 }
-                   
-                   
-      }
-                 
-                 
      
                      }
     
