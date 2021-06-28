@@ -34,12 +34,12 @@ pipeline {
                         //sshCommand remote: remote, command: "whoami"
                         sshCommand remote: remote, command: "git clone https://github.com/patiwat13/patiwat13.git"
                         //sshPut remote: remote, from: 'Dockerfile', into: 'root'
-                        sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins nginx-say/.'
+                        sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins patiwat13/.'
                         //sshCommand remote: remote, command: 'rm -rf  nginx-say/'
                         sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
-                        sshCommand remote: remote, command: 'cp nginx-say/*yaml .'
+                        sshCommand remote: remote, command: 'cp patiwat13/*yaml .'
                         sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                    
@@ -53,7 +53,7 @@ pipeline {
                    
                    stage("Copy Kubeconfig On Git On VM") 
                    
-                       sshCommand remote: remote, command: 'cp nginx-say/*cfg .'
+                       sshCommand remote: remote, command: 'cp patiwat13/*cfg .'
                        sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
                        sshCommand remote: remote, command: 'kubectl get node'
                    
