@@ -47,6 +47,16 @@ pipeline {
                    
                    
       }
+                 stage("Git Clone"){
+      
+                     steps {
+                           script {
+                              
+                             sh 'pwd'
+                             
+                           }
+                     }
+                 }
                  
                  stage("Login to Rancher"){ 
                     
