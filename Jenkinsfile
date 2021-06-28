@@ -35,7 +35,7 @@ pipeline {
                         sshCommand remote: remote, command: "git clone https://github.com/patiwat13/nginx-say.git"
                         //sshPut remote: remote, from: 'Dockerfile', into: 'root'
                         sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins nginx-say/.'
-                        sshCommand remote: remote, command: 'rm -rf  nginx-say/'
+                        //sshCommand remote: remote, command: 'rm -rf  nginx-say/'
                         sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
