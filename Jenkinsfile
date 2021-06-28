@@ -53,7 +53,7 @@ pipeline {
               steps {
                     script {
 
-                      sh 'kubectl'
+                      sh 'pwd'
 
                     }
               }
