@@ -69,7 +69,7 @@ pipeline {
                    stage('Remove File Clone')
                    
                    
-                         sshCommand remote: remote, command: 'rm -rf kubeconfig-rancher.cfg k8s-nginx-deployment.yaml patiwat13/'
+                         sshCommand remote: remote, command: 'rm -rf kubeconfig-rancher.cfg k8s-nginx-deployment.yaml patiwat13/ export.sh'
                          echo 'Remove file Success..!!'
                    
                 
