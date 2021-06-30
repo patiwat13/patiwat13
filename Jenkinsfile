@@ -58,7 +58,7 @@ pipeline {
                        sshCommand remote: remote, command: "pwd"
                        sshCommand remote: remote, command: "whoami"                       
                        sshCommand remote: remote, command: 'source ./export.sh && echo $KUBECONFIG'
-                       sshCommand remote: remote, command: 'kubectl get node'
+                       sshCommand remote: remote, command: 'kubectl cluster-info'
                    
                 
                   }
