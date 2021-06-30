@@ -42,11 +42,13 @@ pipeline {
                         //sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                
-                  stage("Docker Login"){
-        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-            sh 'docker login -u liquid07 -p $PASSWORD'
-            echo 'DOCKER LOGIN SUCESS..'
-        }
+                  stage("Docker Login && Push"){
+                        
+                    sshCommand remote: remote, command: 'cp patiwat13/docker-login.sh .'
+                    sshCommand remote: remote, command: 'docker push liquid07/website-php:website-php-demo'
+                    echo 'Docker Push Success..!'
+                    sshCommand remote: remote, command: 'rm docker-login.sh'
+                        
                   }
                    
                    stage("Check Command Kubectl"){
