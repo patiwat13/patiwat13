@@ -39,7 +39,7 @@ pipeline {
                         //sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
-                        sshCommand remote: remote, command: 'cp patiwat13/*yaml .'
+                        //sshCommand remote: remote, command: 'cp patiwat13/*yaml .'
                         //sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                    
@@ -52,15 +52,16 @@ pipeline {
                    
                    stage("Copy Kubeconfig On Git On VM") 
                    
-                       sshCommand remote: remote, command: 'cp patiwat13/*cfg .'
-                       //sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
-                       sshCommand remote: remote, command: "pwd"
-                       sshCommand remote: remote, command: "ip a"
+                                         
                        sshCommand remote: remote, command: 'source ./export.sh && kubectl get node' + '&& kubectl cluster-info'
+                       //sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
+                       //sshCommand remote: remote, command: "pwd"
+                       //sshCommand remote: remote, command: "ip a"
                        //sshCommand remote: remote, command: 'kubectl cluster-info'
                    
                    stage('Kubectl Apply Application')
-                   
+                                      
+                        sshCommand remote: remote, command: 'cp patiwat13/*cfg .' //copy kubeconfig    
                         sshCommand remote: remote, command: 'source ./export.sh && kubectl apply -f *.yaml'
                         echo 'Kubectl Apply Success..!!'
                    
