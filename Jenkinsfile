@@ -45,7 +45,7 @@ pipeline {
                   stage("Docker Login && Push"){
                         
                     sshCommand remote: remote, command: 'cp patiwat13/docker-login.sh .'
-                    sshCommand remote: remote, command: 'docker push liquid07/website-php:website-php-demo'
+                    sshCommand remote: remote, command: 'docker push liquid07/nginx-docker-demo:jenkins-nginx'
                     echo 'Docker Push Success..!'
                     sshCommand remote: remote, command: 'rm docker-login.sh'
                         
