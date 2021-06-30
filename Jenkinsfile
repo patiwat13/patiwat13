@@ -26,9 +26,9 @@ pipeline {
                             remote.allowAnyHosts = true
                  
                  
-                 echo 'SSH Success'
+                 echo 'SSH Success...!!'
                  
-                 stage('Using Command') {
+                 stage('Using Command Docker Bulid && Tag') {
                         
                         //sshCommand remote: remote, command: "pwd"
                         //sshCommand remote: remote, command: "whoami"
@@ -36,11 +36,11 @@ pipeline {
                         //sshPut remote: remote, from: 'Dockerfile', into: 'root'
                         sshCommand remote: remote, command: 'docker build -t nginx-docker-jenkins patiwat13/.'
                         //sshCommand remote: remote, command: 'rm -rf  nginx-say/'
-                        sshCommand remote: remote, command: 'docker image list'
+                        //sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'cp patiwat13/*yaml .'
-                        sshCommand remote: remote, command: 'ls -la'
+                        //sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                    
                    
@@ -56,7 +56,7 @@ pipeline {
                        //sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
                        sshCommand remote: remote, command: "pwd"
                        sshCommand remote: remote, command: "ip a"
-                       sshCommand remote: remote, command: 'source ./export.sh && kubectl get node' + '&& kubectl cluster-info' + '&& kubectl apply -f *.yaml'
+                       sshCommand remote: remote, command: 'source ./export.sh && kubectl get node' + '&& kubectl cluster-info'
                        //sshCommand remote: remote, command: 'kubectl cluster-info'
                    
                    stage('Kubectl Apply Application')
@@ -68,6 +68,7 @@ pipeline {
                    
                    
                          sshCommand remote: remote, command: 'rm -rf kubeconfig-rancher.cfg k8s-nginx-deployment.yaml patiwat13/'
+                         echo 'Remove file Success..!!'
                    
                 
                   }
