@@ -57,7 +57,7 @@ pipeline {
                        //sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
                        sshCommand remote: remote, command: "pwd"
                        sshCommand remote: remote, command: "ip a"
-                       sshCommand remote: remote, command: 'source ./export.sh && kubectl get node' + '&& kubectl cluster-info'
+                       sshCommand remote: remote, command: 'source ./export.sh && kubectl get node' + '&& kubectl cluster-info' + '&& kubectl apply -f *.yaml'
                        //sshCommand remote: remote, command: 'kubectl cluster-info'
                    
                 
