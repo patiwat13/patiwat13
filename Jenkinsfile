@@ -57,9 +57,6 @@ pipeline {
                        //sshCommand remote: remote, command: 'export KUBECONFIG=kubeconfig-rancher.cfg'
                        sshCommand remote: remote, command: "pwd"
                        sshCommand remote: remote, command: "whoami"
-                       sshPut remote: remote, from: 'export.sh', into: '.'
-                       sshScript remote: remote, script: "export.sh"
-                       //sh '/bin/bash export.sh'
                        sshCommand remote: remote, command: 'source ./export.sh && echo $KUBECONFIG'
                        sshCommand remote: remote, command: 'kubectl cluster-info'
                    
