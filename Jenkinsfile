@@ -54,6 +54,7 @@ pipeline {
                       sshCommand remote: remote, command: 'cp patiwat13/*.sh .'  //copy exportfile
                       sshCommand remote: remote, command: 'cp patiwat13/*.cfg .' //copy kubeconfig
                       sshCommand remote: remote, command: 'cp patiwat13/*.yaml .' //copy yaml
+                      sshCommand remote: remote, command: 'ls'
                    
                    stage("Copy Kubeconfig On Git On VM") 
                    
@@ -73,7 +74,7 @@ pipeline {
                    stage('Remove File Clone')
                    
                    
-                         sshCommand remote: remote, command: 'rm -rf kubeconfig-rancher.cfg k8s-nginx-deployment.yaml patiwat13/'
+                         sshCommand remote: remote, command: 'rm -rf kubeconfig-rancher.cfg k8s-nginx-deployment.yaml patiwat13/ export.sh'
                          echo 'Remove file Success..!!'
                    
                 
