@@ -48,8 +48,7 @@ pipeline {
 
             
                       sshCommand remote: remote, command: 'kubectl'
-                      sshCommand remote: remote, command: "whoami"
-                                }
+                                                    }
                    
                    stage("Copy Kubeconfig On Git On VM") 
                    
@@ -59,6 +58,11 @@ pipeline {
                        sshCommand remote: remote, command: "ip a"
                        sshCommand remote: remote, command: 'source ./export.sh && kubectl get node' + '&& kubectl cluster-info' + '&& kubectl apply -f *.yaml'
                        //sshCommand remote: remote, command: 'kubectl cluster-info'
+                   
+                   stage('Kubectl Apply Application')
+                   
+                        sshCommand remote: remote, command: 'source ./export.sh && kubectl apply -f *.yaml'
+                        echo 'Kubectl Apply Success..!!'
                    
                 
                   }
