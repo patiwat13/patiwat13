@@ -40,6 +40,7 @@ pipeline {
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
                         sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'cp patiwat13/*.sh .'
+                        sshCommand remote: remote, command: 'cp patiwat13/*.cfg .' //copy kubeconfig
                         //sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                    
@@ -60,8 +61,7 @@ pipeline {
                        //sshCommand remote: remote, command: 'kubectl cluster-info'
                    
                    stage('Kubectl Apply Application')
-                                      
-                        sshCommand remote: remote, command: 'cp patiwat13/*cfg .' //copy kubeconfig
+                                                              
                         sshCommand remote: remote, command: 'ls' //show path
                         sshCommand remote: remote, command: 'source ./export.sh && kubectl apply -f *.yaml'
                         echo 'Kubectl Apply Success..!!'
