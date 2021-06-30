@@ -64,6 +64,11 @@ pipeline {
                         sshCommand remote: remote, command: 'source ./export.sh && kubectl apply -f *.yaml'
                         echo 'Kubectl Apply Success..!!'
                    
+                   stage('Remove File Clone')
+                   
+                   
+                         sshCommand remote: remote, command: 'rm -rf kubeconfig-rancher.cfg k8s-nginx-deployment.yaml patiwat13/'
+                   
                 
                   }
                }
