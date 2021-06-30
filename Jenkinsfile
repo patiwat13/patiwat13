@@ -38,9 +38,7 @@ pipeline {
                         //sshCommand remote: remote, command: 'rm -rf  nginx-say/'
                         //sshCommand remote: remote, command: 'docker image list'
                         sshCommand remote: remote, command: 'docker tag nginx-docker-jenkins liquid07/nginx-docker-demo:jenkins-nginx'
-                        sshCommand remote: remote, command: 'docker image list'
-                        sshCommand remote: remote, command: 'cp patiwat13/*.sh .'
-                        sshCommand remote: remote, command: 'cp patiwat13/*.cfg .' //copy kubeconfig
+                        sshCommand remote: remote, command: 'docker image list'                        
                         //sshCommand remote: remote, command: 'ls -la'
                         //sshRemove remote: remote, path: "Dockerfile"
                    
@@ -50,6 +48,12 @@ pipeline {
             
                       sshCommand remote: remote, command: 'kubectl'
                                                     }
+                   
+                   stage('Copyfile in Local')
+                   
+                      sshCommand remote: remote, command: 'cp patiwat13/*.sh .'  //copy exportfile
+                      sshCommand remote: remote, command: 'cp patiwat13/*.cfg .' //copy kubeconfig
+                      sshCommand remote: remote, command: 'cp patiwat13/*.yaml .' //copy yaml
                    
                    stage("Copy Kubeconfig On Git On VM") 
                    
