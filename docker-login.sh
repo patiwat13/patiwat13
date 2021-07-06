@@ -1,7 +1,7 @@
 #!/source
 
 _username="liquid07"
-_password="Za0892742120"
+_password="xxxxxxxxx"
 
 echo "$_username $_password"
 
