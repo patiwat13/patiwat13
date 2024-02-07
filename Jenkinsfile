@@ -19,10 +19,10 @@ pipeline {
         steps {
                script {
                             def remote = [:]
-                            remote.name = 'K8S master'
-                            remote.host = '192.168.1.100'
-                            remote.user = 'root'
-                            remote.password = 'zjkoC]6p'
+                            remote.name = 'K8S Node2'
+                            remote.host = '172.20.5.68'
+                            remote.user = 'patiwat'
+                            remote.password = 'patiwat#123'
                             remote.allowAnyHosts = true
                  
                  
