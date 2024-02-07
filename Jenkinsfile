@@ -3,18 +3,7 @@ pipeline {
   
   stages{
      
-    stage("Git Clone"){
-      
-                     steps {
-                           script {
-                                git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/patiwat13.git'
-                                echo 'Git Complete...'
-                                sh 'pwd'
-                                sh 'ls'
-                                   }
-                            }
-                    }
-    
+   
     stage('SSH into the server') {
         steps {
                script {
@@ -50,6 +39,18 @@ pipeline {
                     sshCommand remote: remote, command: 'rm docker-login.sh'
                         
                   }
+
+                    stage("Git Clone"){
+      
+                     steps {
+                           script {
+                                git credentialsId: 'GIT_HUB', url: 'https://github.com/patiwat13/patiwat13.git'
+                                echo 'Git Complete...'
+                                sh 'pwd'
+                                sh 'ls'
+                                   }
+                            }
+                    }
                    
                    stage("Check Command Kubectl"){
 
